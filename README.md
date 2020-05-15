@@ -1,0 +1,2 @@
+# Simple Slider
+This side project is inspired by the Ray Wenderlich [tutorial](https://www.raywenderlich.com/7595-how-to-make-a-custom-control-tutorial-a-reusable-slider) on how to make a custom slider. I'm currently implementing this code into a project I'm working on but only need the functionality of one slider. The goal is to create this functionality and provide the code for others to use in their projects.
