@@ -20,13 +20,14 @@ class ViewController: UIViewController {
                               for: .valueChanged)
         let time = DispatchTime.now() + 1
         DispatchQueue.main.asyncAfter(deadline: time) {
-            self.rangeSlider.trackHighlightTintColor = .red
+//            self.rangeSlider.trackHighlightTintColor = .red
             self.rangeSlider.thumbImage = #imageLiteral(resourceName: "RectThumb")
             self.rangeSlider.highlightedThumbImage = #imageLiteral(resourceName: "HighlightedRect")
         }
     }
     
     override func viewDidLayoutSubviews() {
+        // set rangeSlider properties
         let margin: CGFloat = 20
         let width = view.bounds.width - 2 * margin
         let height: CGFloat = 30
@@ -37,8 +38,8 @@ class ViewController: UIViewController {
     }
     
     @objc func rangeSliderValueChanged(_ rangeSlider: RangeSlider) {
-        let values = "(\(rangeSlider.lowerValue) \(rangeSlider.upperValue))"
-        print("Range slider value changed: \(values)")
+//        let values = "(\(rangeSlider.lowerValue) \(rangeSlider.upperValue))"
+//        print("Range slider value changed: \(values)")
     }
 
 }
