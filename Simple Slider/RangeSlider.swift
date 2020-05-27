@@ -40,6 +40,13 @@ class RangeSlider: UIControl {
         }
     }
     
+    // work in progress
+    var data = [(label:String, color:CGColor)]() {
+        didSet {
+            newTrackLayer.data = data
+        }
+    }
+    
     var sliderControlLength: CGFloat {
         return 20.00
     }
@@ -56,6 +63,7 @@ class RangeSlider: UIControl {
         }
     }
     
+    private let newTrackLayer = SliderBar()
     private let sliderControl = SliderControl()
     private let trackLayer = RangeSliderTrackLayer()
     private var previousLocation = CGPoint()
@@ -63,9 +71,14 @@ class RangeSlider: UIControl {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        trackLayer.rangeSlider = self
-        trackLayer.contentsScale = UIScreen.main.scale
-        layer.addSublayer(trackLayer)
+//        trackLayer.rangeSlider = self
+//        trackLayer.contentsScale = UIScreen.main.scale
+//        layer.addSublayer(trackLayer)
+        
+        // work in progress
+        newTrackLayer.slider = self
+        newTrackLayer.contentsScale = UIScreen.main.scale
+        layer.addSublayer(newTrackLayer)
         
         sliderControl.slider = self
         sliderControl.contentsScale = UIScreen.main.scale
@@ -81,8 +94,12 @@ class RangeSlider: UIControl {
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         
-        trackLayer.frame = bounds.insetBy(dx: 0.0, dy: bounds.height / 3)
-        trackLayer.setNeedsDisplay()
+//        trackLayer.frame = bounds.insetBy(dx: 0.0, dy: bounds.height / 3)
+//        trackLayer.setNeedsDisplay()
+        
+        // work in progress
+        newTrackLayer.frame = bounds
+        newTrackLayer.setNeedsDisplay()
         
         sliderControl.frame = CGRect(origin: thumbOriginForValue(upperValue), size: CGSize(width: sliderControlLength, height: sliderControlLength))
         sliderControl.setNeedsDisplay()
